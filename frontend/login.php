@@ -38,18 +38,26 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <link rel = "stylesheet" href = "style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href = "css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Linkup</h1>
+        <header class = "heading">
+        <h1>LinkUp</h1>
+        </header>
         <nav>
             <a href = "index.php">Home</a>
             <a href = "login.php">Log in</a>
             <a href = "forum.php">Explore</a>
+        
         </nav>
         <h2>Log In</h2>
-            
-            <form method="POST" action="login.php">
+        <form method="POST" action="login.php">
                 <input type="hidden" name="submitted" value="1">
                 <label for = "username">Username:</label>
                 <input type = "text" id = "username" name="username">
