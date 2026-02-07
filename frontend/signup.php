@@ -36,9 +36,9 @@
     <body>
         <h1>Linkup</h1>
         <nav>
-            <a href = "index.html">Home</a>
-            <a href = "login.html">Log in</a>
-            <a href = "forum.html">Explore</a>
+            <a href = "index.php">Home</a>
+            <a href = "login.php">Log in</a>
+            <a href = "forum.php">Explore</a>
         </nav>
         <h2>Sign Up</h2>
         <form method="POST" action="signup.php">
