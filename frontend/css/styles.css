@@ -46,7 +46,7 @@ nav a {
     color: rgb(0, 0, 0);
     text-align: center;
     text-decoration: none;
-    font-size: max(1.4vw, 15px);
+    font-size: max(1.4vw, 25px);
     display: block;
     padding: 0.7vw 16px;
 }
@@ -109,3 +109,4 @@ form{
 table{
     font-size: 20px;
 }
+
