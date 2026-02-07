@@ -110,3 +110,8 @@ table{
     font-size: 20px;
 }
 
+input [type = file], input [type = select]{
+background: rgb(67, 164, 255);
+ background: linear-gradient(0deg, rgb(84, 151, 251) 0%, rgb(103, 202, 252) 100%);
+ border: none;
+}
