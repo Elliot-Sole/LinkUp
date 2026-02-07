@@ -31,6 +31,12 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel = "stylesheet" href = "style.css">
     </head>
     <body>
@@ -43,13 +49,13 @@
         <h2>Sign Up</h2>
         <form method="POST" action="signup.php">
             <input type="hidden" name="submitted" value="1">
-            <label for = "email">Email:</label>
-            <input type = "email" id = "email" name="email">
-            <label for = "username">Username:</label>
-            <input type = "text" id = "username" name="username">
-            <label for = "password">Password:</label>
-            <input type = "password" id = "password" name="password">
-            <input type = "submit" value = "Submit">
+            <label for = "email">Email:</label><br>
+            <input type = "email" id = "email" name="email"><br>
+            <label for = "username">Username:</label><br>
+            <input type = "text" id = "username" name="username"><br>
+            <label for = "password">Password:</label><br>
+            <input type = "password" id = "password" name="password"><br>
+            <input type = "submit" value = "Submit"><br>
             <?php if (!empty($message)): ?>
                     <p class="form-message"><?php echo $message; ?></p>
             <?php endif; ?>
