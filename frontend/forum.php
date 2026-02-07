@@ -14,9 +14,9 @@
         <h1>LinkUp</h1>
         </header>
         <nav>
-            <a href = "signup.html">Sign Up</a>
-            <a href = "login.html">Log in</a>
-            <a href = "index.html">Home</a>
+            <a href = "signup.php">Sign Up</a>
+            <a href = "login.php">Log in</a>
+            <a href = "index.php">Home</a>
         </nav>
         <h2>Forum</h2>
         <form>

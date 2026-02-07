@@ -17,9 +17,9 @@
         </section>
         </header>
         <nav>
-            <a href = "signup.html">Sign Up</a>
-            <a href = "login.html">Log in</a>
-            <a href = "forum.html">Explore</a>
+            <a href = "signup.php">Sign Up</a>
+            <a href = "login.php">Log in</a>
+            <a href = "forum.php">Explore</a>
         </nav>
         <h2>Welcome to LinkUP, your free community hub!</h2>
         <p>Here you can post about and sign up to community based events in your local area.</p>

@@ -14,9 +14,9 @@
         <h1>LinkUp</h1>
         </header>
         <nav>
-            <a href = "logout.html">Log Out</a>
-            <a href = "forum.html">Explore</a>
-            <a href = "index.html">Home</a>
+            <a href = "logout.php">Log Out</a>
+            <a href = "forum.php">Explore</a>
+            <a href = "index.php">Home</a>
         </nav>
         <h2>New Post</h2>
         <form>
