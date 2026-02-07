@@ -47,6 +47,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class = "wrapper">
         <header class = "heading">
         <h1>LinkUp</h1>
         </header>
@@ -56,6 +57,7 @@
             <a href = "forum.php">Explore</a>
         
         </nav>
+        </div>
         <h2>Log In</h2>
         <form method="POST" action="login.php">
                 <input type="hidden" name="submitted" value="1">
