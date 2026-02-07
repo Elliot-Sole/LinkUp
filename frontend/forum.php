@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class = "wrapper>
         <header class = "heading">
         <h1>LinkUp</h1>
         </header>
@@ -18,6 +19,7 @@
             <a href = "login.php">Log in</a>
             <a href = "index.php">Home</a>
         </nav>
+        </div>
         <h2>Forum</h2>
         <form>
             <input type = "text" id = "query">
