@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class = "wrapper">
         <header class = "heading">
             <section class = "heading-layer">
         <h1>LinkUp</h1>
@@ -21,6 +22,7 @@
             <a href = "login.php">Log in</a>
             <a href = "forum.php">Explore</a>
         </nav>
+        </div>
         <h2>Welcome to LinkUP, your free community hub!</h2>
         <p>Here you can post about and sign up to community based events in your local area.</p>
         <section class = "mascot">
