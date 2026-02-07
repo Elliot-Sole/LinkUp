@@ -1,9 +1,11 @@
 CREATE TABLE users (
     UserID int NOT NULL AUTO_INCREMENT,
+    Username varchar(1o) NOT NULL,
     Email varchar(40) NOT NULL,
+    Pass varchar(15) NOT NULL,
     Bio varchar(300) NULL,
     PRIMARY KEY (UserID),
-    UNIQUE(Email)
+    UNIQUE(Username)
 );
 
 CREATE TABLE board (
