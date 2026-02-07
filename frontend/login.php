@@ -1,6 +1,7 @@
 <?php
     require 'connect.php';
     session_start();
+    
     $message = "";
     if (isset($_SESSION['user'])) {
         header("Location: forum.php");
@@ -18,8 +19,10 @@
         $stmt->execute([$username]); 
         //if any results($stmt->fetch) were returned from the table, then...
         if ($row = $stmt->fetch()) {
+   
             //if the hashed password in the database matches the hashed version of password submitted in the login form
             if (password_verify($password, $row['password'])) {
+                
                 session_regenerate_id(true);
                 $_SESSION['user_id'] = $row['UserID'];
                 $_SESSION['user'] = $row['username'];
@@ -27,8 +30,8 @@
                 exit();
                 //this executes if the password didnt match
             } else {
-                $message = "Username or Password is incorrect";
-            }
+                $message = "You Failed!";
+            } 
         } else {
             $message = "Username or Password is incorrect";
         }

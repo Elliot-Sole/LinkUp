@@ -24,7 +24,7 @@
             <input type = "submit" class = "btn-1" value = "Search">
         </form>
         <p>Here you can post about and sign up to community based events in your local area.</p>
-        <a href = "newpost.html">
+        <a href = "newpost.php">
         <button class = "btn-1">New Post</button>
         </a>
         <section class = "posts">

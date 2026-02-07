@@ -1,3 +1,23 @@
+<?php 
+    require 'connect.php';
+    session_start();
+    if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
+        $user_id = $_SESSION['user_id'];
+        $BoardName = $_POST['BoardNme'];
+        $Region = $_POST['Region'];
+        $BoardDescription = $_POST['BoardDescription'];
+        $imageName = $_FILES['image']['name'];
+        $imageTmpPath = $_FILES['image']['tmp_name'];
+        $imageSize = $_FILES['image']['size'];
+        $imageType = $_FILES['image']['type'];
+    }
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -18,16 +38,65 @@
             <a href = "forum.php">Explore</a>
             <a href = "index.php">Home</a>
         </nav>
-        <h2>New Post</h2>
-        <form>
+        <h2>New Community Board</h2>
+        <form method="POST" action="login.php">
+            <input type="hidden" name="submitted" value="1">
             <label for = "Title">Title:</label><br>
-            <input type = "text" id = "Title"><br>
+            <input type = "text" id = "Title" name="BoardName"><br>
             <label for = "County">County:</label><br>
-            <input type = "text" id = "County"><br>
-            <label for = "Date">Date:</label><br>
-            <input type = "datetime-local" id = "Date"><br>
+            <select id = "County" name="Region" required>
+    <option value="">-- Select a county --</option>
+    <option value="Bedfordshire">Bedfordshire</option>
+    <option value="Berkshire">Berkshire</option>
+    <option value="Bristol">Bristol</option>
+    <option value="Buckinghamshire">Buckinghamshire</option>
+    <option value="Cambridgeshire">Cambridgeshire</option>
+    <option value="Cheshire">Cheshire</option>
+    <option value="City of London">City of London</option>
+    <option value="Cornwall">Cornwall</option>
+    <option value="Cumbria">Cumbria</option>
+    <option value="Derbyshire">Derbyshire</option>
+    <option value="Devon">Devon</option>
+    <option value="Dorset">Dorset</option>
+    <option value="East Riding of Yorkshire">East Riding of Yorkshire</option>
+    <option value="East Sussex">East Sussex</option>
+    <option value="Essex">Essex</option>
+    <option value="Gloucestershire">Gloucestershire</option>
+    <option value="Greater London">Greater London</option>
+    <option value="Greater Manchester">Greater Manchester</option>
+    <option value="Hampshire">Hampshire</option>
+    <option value="Herefordshire">Herefordshire</option>
+    <option value="Hertfordshire">Hertfordshire</option>
+    <option value="Isle of Wight">Isle of Wight</option>
+    <option value="Kent">Kent</option>
+    <option value="Lancashire">Lancashire</option>
+    <option value="Leicestershire">Leicestershire</option>
+    <option value="Lincolnshire">Lincolnshire</option>
+    <option value="Merseyside">Merseyside</option>
+    <option value="Norfolk">Norfolk</option>
+    <option value="North Yorkshire">North Yorkshire</option>
+    <option value="Northamptonshire">Northamptonshire</option>
+    <option value="Northumberland">Northumberland</option>
+    <option value="Nottinghamshire">Nottinghamshire</option>
+    <option value="Oxfordshire">Oxfordshire</option>
+    <option value="Rutland">Rutland</option>
+    <option value="Shropshire">Shropshire</option>
+    <option value="Somerset">Somerset</option>
+    <option value="South Yorkshire">South Yorkshire</option>
+    <option value="Staffordshire">Staffordshire</option>
+    <option value="Suffolk">Suffolk</option>
+    <option value="Surrey">Surrey</option>
+    <option value="Tyne and Wear">Tyne and Wear</option>
+    <option value="Warwickshire">Warwickshire</option>
+    <option value="West Midlands">West Midlands</option>
+    <option value="West Sussex">West Sussex</option>
+    <option value="West Yorkshire">West Yorkshire</option>
+    <option value="Wiltshire">Wiltshire</option>
+    <option value="Worcestershire">Worcestershire</option>
+    <option value="County Durham">County Durham</option>
+            </select><br>
             <label for = "Information">Information:</label><br>
-            <input type = "text" id = Information><br>
+            <input type = "text" id = Information name="BoardDescription"><br>
             <input type = "submit" value = "Submit">
         </form>
        

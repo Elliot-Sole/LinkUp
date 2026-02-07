@@ -1,5 +1,5 @@
 <?php 
-    require 'connect.php';
+    require __DIR__ . '/connect.php';
     $message = ""; // <-- message variable
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
@@ -22,7 +22,7 @@
             $stmt -> bindParam(':username', $username);
             $stmt -> bindParam(':password', $password);
             $stmt->execute();
-        //    header("Location: index.php");
+            header("Location: login.php");
         }
     }
 }

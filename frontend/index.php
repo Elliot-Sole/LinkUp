@@ -20,6 +20,7 @@
             <a href = "signup.php">Sign Up</a>
             <a href = "login.php">Log in</a>
             <a href = "forum.php">Explore</a>
+            <a href = "logout.php">Log Out</a>
         </nav>
         <h2>Welcome to LinkUP, your free community hub!</h2>
         <p>Here you can post about and sign up to community based events in your local area.</p>
