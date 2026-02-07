@@ -11,6 +11,8 @@ body{
 }
 .heading{
     background-image: url(bkg3.gif);
+    justify-content: center;
+    
 }
 .heading-layer{
     background-image: url("1770482515720.png"),url("1770482515720.png");
@@ -20,7 +22,7 @@ body{
 }
 
 .heading h1{
-    font-size: 70px;
+    font-size: 60px;
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     background-image: url("1770482515720.png");
@@ -29,7 +31,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 10px 0;
-    gap: 70px;
+    gap:70px;
     position: fixed;
     top: 1%;
     left: 50%;
@@ -38,6 +40,7 @@ nav {
     height: 2vw;
     background-image: url(bkg3.gif);
     z-index: 1000;
+      
 }
 nav a {
     color: rgb(0, 0, 0);
@@ -58,7 +61,7 @@ nav a:hover {
  color: #000000;
  border-radius: 5px;
  padding: 10px 25px;
- font-family: 'Lato', sans-serif;
+ font-family: "Oswald", sans-serif;
  font-weight: 500;
  background: transparent;
  cursor: pointer;
@@ -87,3 +90,16 @@ nav a:hover {
     height: 400px;
     margin: 0 auto;
 }
+.account-table{
+    width: 100%;
+    overflow-x: auto;
+}
+h2{
+    size:70px;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
