@@ -1,3 +1,24 @@
+<?php 
+    require 'connect.php';
+    session_start();
+    if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
+        $user_id = $_SESSION['user_id'];
+        $BoardName = $_POST['BoardNme'];
+        $Region = $_POST['Region'];
+        $BoardDescription = $_POST['BoardDescription'];
+        $imageName = $_FILES['image']['name'];
+        $imageTmpPath = $_FILES['image']['tmp_name'];
+        $imageSize = $_FILES['image']['size'];
+        $imageType = $_FILES['image']['type'];
+    }
+?>
+
+
 <!DOCTYPE HTML>
 <html>
     <head>
