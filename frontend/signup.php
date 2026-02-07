@@ -40,6 +40,7 @@
         <link rel = "stylesheet" href = "css/style.css">
     </head>
     <body>
+        <div class = "wrapper">
         <h1>Linkup</h1>
         <nav>
             <a href = "index.php">Home</a>
@@ -47,6 +48,7 @@
             <a href = "forum.php">Explore</a>
 
         </nav>
+        </div>
         <h2>Sign Up</h2>
         <form method="POST" action="signup.php">
             <input type="hidden" name="submitted" value="1">
