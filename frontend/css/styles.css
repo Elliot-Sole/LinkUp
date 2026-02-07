@@ -95,7 +95,7 @@ nav a:hover {
     overflow-x: auto;
 }
 h2{
-    size:70px;
+    font-size:70px;
 }
 .wrapper{
     display: flex;
@@ -103,3 +103,9 @@ h2{
     gap: 10px;
 }
 
+form{
+    font-size: 25px;
+}
+table{
+    font-size: 20px;
+}
