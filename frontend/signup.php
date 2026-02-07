@@ -45,6 +45,7 @@
             <a href = "index.php">Home</a>
             <a href = "login.php">Log in</a>
             <a href = "forum.php">Explore</a>
+
         </nav>
         <h2>Sign Up</h2>
         <form method="POST" action="signup.php">
