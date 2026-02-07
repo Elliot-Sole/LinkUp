@@ -18,6 +18,7 @@
     }
 ?>
 
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -30,6 +31,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class = "wrapper">
         <header class = "heading">
         <h1>LinkUp</h1>
         </header>
@@ -38,8 +40,9 @@
             <a href = "forum.php">Explore</a>
             <a href = "index.php">Home</a>
         </nav>
-        <h2>New Community Board</h2>
-        <form method="POST" action="login.php">
+        </div>
+        <h2>New Post</h2>
+       <form method="POST" action="login.php">
             <input type="hidden" name="submitted" value="1">
             <label for = "Title">Title:</label><br>
             <input type = "text" id = "Title" name="BoardName"><br>
@@ -94,7 +97,7 @@
     <option value="Wiltshire">Wiltshire</option>
     <option value="Worcestershire">Worcestershire</option>
     <option value="County Durham">County Durham</option>
-            </select><br>
+                </select><br>
             <label for = "Information">Information:</label><br>
             <input type = "text" id = Information name="BoardDescription"><br>
             <input type = "submit" value = "Submit">
