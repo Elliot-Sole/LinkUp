@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class = "wrapper">
         <header class = "heading">
         <h1>LinkUp</h1>
         </header>
@@ -18,6 +19,7 @@
             <a href = "forum.php">Explore</a>
             <a href = "index.php">Home</a>
         </nav>
+        </div>
         <h2>New Post</h2>
         <form>
             <label for = "Title">Title:</label><br>
