@@ -1,3 +1,17 @@
+<?php
+    require 'connect.php';
+    $sql = "SELECT BoardName, BoardDescription, Region, image, BoardID, users.username
+    FROM Board
+    INNER JOIN users ON Board.UserID = users.UserID
+    /*organises recipes ina ascending order */
+    ORDER BY Board.BoardName ASC";
+    //executes query, using query function to avoid potential sql injection
+    $Boards = $kayo->query($sql);
+    //stores the details in a associative array
+    $BoardDetails = $Boards->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -10,7 +24,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class = "wrapper>
+        <div class = "wrapper">
         <header class = "heading">
         <h1>LinkUp</h1>
         </header>
@@ -18,37 +32,33 @@
             <a href = "signup.php">Sign Up</a>
             <a href = "login.php">Log in</a>
             <a href = "index.php">Home</a>
-        </nav>
-        </div>
-        <h2>Forum</h2>
-        <form method = "POST" action = "forum.php">
+            <form>
             <input type = "text" id = "query">
             <input type = "submit" class = "btn-1" value = "Search">
         </form>
-        <?php
-                                if(ISSET($_POST['query'])){
-                                        $keyword = $_POST['keyword'];
-                        ?>
-        <p>Here you can post about and sign up to community based events in your local area.</p>
+        </nav>
+        </div>
+        <h2>Forum</h2>
+        <p id="intro">Here you can post about and sign up to community based events in your local area.</p>
         <a href = "newpost.php">
         <button class = "btn-1">New Post</button>
         </a>
         <section class = "posts">
             <h2>Latest Posts</h2>
-            <?php
-                                    $safe_value = mysql_real_escape_string($_POST['query']);
-
-                $result = mysql_query("SELECT CommentText FROM comments WHERE `BoardID` LIKE %$safe_value%");
-                 while ($row = mysql_fetch_assoc($result)) {
-                echo "<div id='link' onClick='addText(\"".$row['username']."\");'>" . $row['username'] . "</div>";  
- }
-
-
-  ?>
-            
-            <div class = "post-container">
-
-            </div>
+            <div class="post-container">
+    <?php foreach($BoardDetails as $Board): ?>
+        <div class="Board-card">
+           
+            <h2 id="header"><u><?php echo htmlspecialchars($Board['BoardName']); ?></u></h2>
+            <h3>By: <?php echo htmlspecialchars($Board['username']) ?></h3>
+            <h3>Region: <?php echo htmlspecialchars($Board['Region']) ?></h3>
+            <a href="singleBoard.php?id=<?php echo $Board['BoardID']; ?>">
+            <img src="<?php echo htmlspecialchars($Board['image']);?>" alt="Image for the Board" class="BoardImg">
+            </a>
+            <p id="description"><?php echo htmlspecialchars($Board['BoardDescription']); ?></p>
+        </div>
+    <?php endforeach; ?>
+    </div>
         </section>
     </body>
 </html>
