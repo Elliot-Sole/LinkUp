@@ -1,22 +1,89 @@
-<?php 
-    require 'connect.php';
-    session_start();
-    if (!isset($_SESSION['user'])) {
+<?php
+require 'connect.php';
+session_start();
+
+/* ---- Auth guard ---- */
+if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
-    }
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
-        $user_id = $_SESSION['user_id'];
-        $BoardName = $_POST['BoardNme'];
-        $Region = $_POST['Region'];
-        $BoardDescription = $_POST['BoardDescription'];
-        $imageName = $_FILES['image']['name'];
-        $imageTmpPath = $_FILES['image']['tmp_name'];
-        $imageSize = $_FILES['image']['size'];
-        $imageType = $_FILES['image']['type'];
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submitted'])) {
+
+    $user_id = $_SESSION['user_id'];
+
+    $BoardName        = trim($_POST['BoardName'] ?? '');
+    $Region           = $_POST['Region'] ?? '';
+    $BoardDescription = trim($_POST['BoardDescription'] ?? '');
+
+    /* ---- Basic validation ---- */
+    if ($BoardName === '' || $Region === '' || $BoardDescription === '') {
+        $message = "All fields are required.";
+    } elseif (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+        $message = "Image upload failed.";
+    } else {
+
+        /* ---- Check for duplicate board name ---- */
+        $stmt = $kayo->prepare(
+            "SELECT 1 FROM board WHERE BoardName = ?"
+        );
+        $stmt->execute([$BoardName]);
+
+        if ($stmt->fetch()) {
+            $message = "That Board Name is already taken.";
+        } else {
+
+            /* ---- Image validation ---- */
+            $imageName    = $_FILES['image']['name'];
+            $imageTmpPath = $_FILES['image']['tmp_name'];
+
+            $ext = strtolower(pathinfo($imageName, PATHINFO_EXTENSION));
+            $allowed = ['jpg', 'jpeg', 'png', 'webp'];
+
+            if (!in_array($ext, $allowed, true)) {
+                $message = "Only JPG, PNG, and WEBP images are allowed.";
+            } else {
+
+                /* ---- Ensure upload directory exists ---- */
+                $uploadDir = 'images/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+
+                $newFileName = uniqid('img_', true) . '.' . $ext;
+                $destPath    = $uploadDir . $newFileName;
+
+                /* ---- Move file first ---- */
+                if (!move_uploaded_file($imageTmpPath, $destPath)) {
+                    $message = "Failed to save uploaded image.";
+                } else {
+
+                    /* ---- Insert into database ---- */
+                    $stmt = $kayo->prepare(
+                        "INSERT INTO board
+                         (UserID, BoardName, BoardDescription, Region, image)
+                         VALUES (?, ?, ?, ?, ?)"
+                    );
+
+                    $stmt->execute([
+                        $user_id,
+                        $BoardName,
+                        $BoardDescription,
+                        $Region,
+                        $destPath
+                    ]);
+
+                    header("Location: forum.php");
+                    exit();
+                }
+            }
+        }
     }
+}
 ?>
+
 
 
 <!DOCTYPE HTML>
@@ -42,7 +109,7 @@
         </nav>
         </div>
         <h2>New Post</h2>
-       <form method="POST" action="login.php">
+       <form method="POST" action="newpost.php" enctype="multipart/form-data">
             <input type="hidden" name="submitted" value="1">
             <label for = "Title">Title:</label><br>
             <input type = "text" id = "Title" name="BoardName"><br>
@@ -99,7 +166,9 @@
     <option value="County Durham">County Durham</option>
                 </select><br>
             <label for = "Information">Information:</label><br>
-            <input type = "text" id = Information name="BoardDescription"><br>
+            <textarea type=text id = Information name="BoardDescription" maxlength="300"></textarea><br>
+            <label for="image">Provide an image for this Board: </label><br>
+        <input name="image" type="file" accept="image/*" required id="image"><br>
             <input type = "submit" value = "Submit">
         </form>
        
