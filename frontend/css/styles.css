@@ -3,7 +3,7 @@ body{
     font-family: "Oswald", sans-serif;
     text-align: center;
     content: "";
-    position: fixed;
+   /* position: fixed;*/
     top: 0;
     left: 0;
     width: 100%;
@@ -109,9 +109,44 @@ form{
 table{
     font-size: 20px;
 }
+.Board-card {
+    width: 20%;
+    align-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+#header {
+        font-size: 2vw;
+    margin-top: 0;
+}
+.BoardImg {
+    width: 15vw;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-input [type = file], input [type = select]{
-background: rgb(67, 164, 255);
- background: linear-gradient(0deg, rgb(84, 151, 251) 0%, rgb(103, 202, 252) 100%);
- border: none;
+.BoardImg:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.post-container {
+    padding-top: 0%;
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+#CommentBox {
+    width: 70%;
+    color: none;
+}
+#Comment {
+    padding-left: -14%;
+    width: 70%;
+}
+
+#CommentBody {
+    margin-left: -6%;
 }
